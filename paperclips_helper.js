@@ -84,6 +84,9 @@ function autohelper()
         else
         {
           // we got a bonus so delay to =1 ---> it will get ops for each call
+          for (var i= 0; i<20; i++)          {     
+            document.getElementById("btnQcompute").click();
+          }
           quantumdelay=1
         }
      }
@@ -104,4 +107,6 @@ function autohelper()
      }
   }
 }
+
+
 
