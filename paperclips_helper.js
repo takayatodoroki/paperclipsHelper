@@ -16,6 +16,7 @@ var quantumdelay=3;
     helperDiv.id="helper";
     var helperHTML= "Helper<br>";
 		helperHTML +=    "<input id='autoFireClipper' type='checkbox' checked>Autofire on 'Make Paperclip'</input><br>";
+		helperHTML +=    "<input id='autoBuyWire' type='checkbox' checked>Auto buy Wire</input><br>";
 		helperHTML +=    "<input id='autoQuantum' type='checkbox' checked>Smartish autofire on quantum</input></br>";
 		helperHTML +=    "<input id='autoTournaments' type='checkbox' checked>Autostart tournaments<br>&nbsp;&nbsp;&nbsp;&nbsp;with the last strategy</input>";
 		helperDiv.innerHTML=helperHTML;
@@ -40,15 +41,30 @@ function autohelper()
     var stratPicker=document.getElementById("stratPicker");
     var btnNewTournament=document.getElementById("btnNewTournament");
     var btnRunTournament=document.getElementById("btnRunTournament");
- 
+    var btnBuyWire=document.getElementById("btnBuyWire");
+
   	ticker++;
 
   
    // MAKES PAPERCLIP SECTION
    // auto click for a clip
    if (document.getElementById("autoFireClipper").checked) {
-   	btnMakePaperclip.click();
+   	for (var i = 0; i< 1000 ; i++)    
+    {
+      	btnMakePaperclip.click();
+    }
    }
+  
+   // AUTO BUY WIRE SECTION
+   if (document.getElementById("autoBuyWire").checked) {
+     	// buy it only when you run out
+      if (document.getElementById("wire").childNodes[0].nodeValue =="0") 	
+      {
+     		btnBuyWire.click();
+      }
+   }
+   
+  
   
   // QUANTUM SECTION
   // tries to get ops from quantum computing: it works by guessing so it's not very effective, you can still manually click when you see a good pattern to have better result
@@ -88,6 +104,4 @@ function autohelper()
      }
   }
 }
-
-
 
